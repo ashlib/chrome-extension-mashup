@@ -1,11 +1,3 @@
-// A2Z F17
-// Daniel Shiffman
-// http://shiffman.net/a2z
-// https://github.com/shiffman/A2Z-F17
-
-// This is the content script for the extension
-// Note there is also a content.css file
-
 // Grab the entire document body
 // This gets an array even though it's likely just one thing
 var everything = document.getElementsByTagName("body");
@@ -22,7 +14,9 @@ for (var i = 0; i < everything.length; i++) {
     // Ignore anything that is a tag
     if (tokens[j].charAt(0) !== '<') {
       // Now replace the word "the" with "the" spanned with the class "redact"
-      tokens[j] = tokens[j].replace(/\bthe\b/gi,'<span class="redact">the</span>');
+      tokens[j] = tokens[j].replace(/\bTrump\b/gi,'<span class="redact">the</span>');
+      tokens[j] = tokens[j].replace(/\bDonald\b/gi,'<span class="redact">the</span>');
+      tokens[j] = tokens[j].replace(/\b President\b/gi,'<span class="redact">the</span>');
     }
   }
   // Put everything back in
